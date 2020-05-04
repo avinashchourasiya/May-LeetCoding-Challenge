@@ -1,0 +1,14 @@
+from collections import Counter;
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str):
+        R_C=dict(Counter(ransomNote));M_C=dict(Counter(magazine));
+        c=0;
+        for key,value in R_C.items():
+            if(key in M_C and M_C[key]>=value):
+                c+=1;
+
+        if(c==len(R_C)):
+            return True;
+        return False;
+ans=Solution().canConstruct("fffbfg","effjfggbffjdgbjjhhdegh");
+print(ans)
