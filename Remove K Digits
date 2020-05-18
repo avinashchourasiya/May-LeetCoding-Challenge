@@ -1,0 +1,25 @@
+class Solution:
+    def removeKdigits(self, nums,k):
+        stack=[];
+        l=len(nums);
+        if(l==k):
+            return '0';
+        for index,number in enumerate(nums):
+            if(len(stack) == 0):
+                stack.append(number);
+            else:
+                if(stack[-1]>number):
+                    while(len(stack) > 0 and k>0 and stack[-1]>number):
+                        stack.pop();
+                        k-=1;
+                    stack.append(number);
+                else:
+                    stack.append(number);
+                    # print(stack)
+        while k > 0:
+            stack.pop()
+            k-=1
+        chars=(''.join(stack).lstrip('0'));
+        if(len(chars)!=0):
+            return (chars)
+        return '0'
