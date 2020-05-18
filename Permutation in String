@@ -1,0 +1,11 @@
+class Solution:
+    def checkInclusion(self, s1: str, s2: str):
+        p=''.join(sorted(s1));
+        l=len(s2)-(len(s1)-1)
+        # print(l)
+        for i in range(0,l):
+            s=''.join(sorted(s2[i:len(p)+i]));
+
+            if(s==p):
+                return True;
+        return False;
