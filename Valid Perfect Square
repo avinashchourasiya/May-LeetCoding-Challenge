@@ -1,0 +1,9 @@
+import math as m;
+class Solution:
+    def isPerfectSquare(self, num: int) -> bool:
+        
+        n=num
+        val=int(m.sqrt(n));
+        if(pow(val,2)==n):
+            return(True);
+        else:return(False)
